@@ -1,0 +1,111 @@
+{% extends 'main/patt.html'%}
+{% load static %}
+
+
+{% block title %}
+profile
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'au/css/prof_w.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=EB+Garamond:ital,wght@1,600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'au/js/prof_w.js' %}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=EB+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<span class="nickname">{{ user.username }} <a href="{% url 'change' user.id %}"><i class="bi bi-pencil-square"></i></a><button class="btn mybtn" onclick="location.href='{% url 'User_logout' %}'"><i class="bi bi-box-arrow-left"></i>Выйти из профиля</button>
+</span>
+        <span class="email">{{ user.email }}</span>
+        {% if user.is_staff %}
+            <span class="mtitle">Пользователи</span>
+            <table>
+                <tr>
+                <td><span class="users1">Username</span></td>
+                <td><span class="users1">Email</span></td>
+                <td></td>
+
+                </tr>
+            {% for u in users %}
+                <tr>
+                <td><span class="users">{{ u.username }}</span></td>
+                <td><span class="users">{{u.email}}</span></td>
+                <td><a class="users2 mlink" href="{% url 'change' u.id %}">Изменить</a></td>
+                    {% if not u.is_staff %}
+                <td><a class="users2 mlink" href="{% url 'del_us' u.id %}">Удалить</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </table>
+        {% else %}
+        <div class="cards">Мои карты<hr>
+            {% if cards %}<table>
+            {% for el in cards %}
+            <tr>
+                <td><span class="crcard"><a href="{% url 'up_card' el.id %}">{{ el }}</a></span></td>
+
+                <td><span class="crcard"><a href="{% url 'del_card' el.id %}">Удалить</a></span></td>
+
+            </tr>
+            {% endfor %}
+            </table>
+            {% else %}
+            <span class="no-card">Нет карт</span>
+            {% endif %}
+            <a href="{% url 'addCard' %}" class="addcard"><i class="bi bi-plus-circle"></i>  Добавить карту</a>
+        </div>
+
+        <div class="fields">Корзина<hr>
+            {% if tovar_c %}
+            {% for el in tovar_c %}
+            <div class="alert-warning alert">
+                <h3>{{ el.title }}</h3>
+                {% if el.image_set.all %}
+                    <div>
+                        <img src="{{el.image_set.all.0.image.url}}" class="tovarIm">
+                    </div>
+                {% else %}
+                    <div>
+                        <img src="{% static 'media/no-image-large.jpg' %}" class="tovarIm">
+                    </div>
+                {% endif %}
+                <h5>{{ el.description }}</h5>
+                <h5>{{ el.date }}</h5>
+                <a href="{% url 'dinamic' el.id %}" class="btn btn-warning">Подробнее</a>
+                <a href="{% url 'buy' el.id %}" class="btn btn-warning"><i class="bi bi-bag-fill"></i></a>
+                <a href="{% url 'del_tovar' el.id %}" class="btn btn-warning"><i class="bi bi-trash3-fill"></i></a>
+            </div>
+        {% endfor %}
+            {% else %}
+            <div class="alert-warning alert">
+                <h3 class="noTov">Товаров в корзине нет</h3>
+            </div>
+            {% endif %}
+        </div>
+        <div class="fields">История покупок<hr>
+            {% for el in tovar_b %}
+            <div class="alert-warning alert">
+                <h3>{{ el.tov.title }}</h3>
+                {% if el.tov.image_set.all %}
+                    <div>
+                        <img src="{{el.tov.image_set.all.0.image.url}}" class="tovarIm">
+                    </div>
+                {% else %}
+                    <div>
+                        <img src="{% static 'media/no-image-large.jpg' %}" class="tovarIm">
+                    </div>
+                {% endif %}
+                <h5>Дата заказа: {{ el.dateBuy }}</h5>
+                <a href="{% url 'dinamic' el.tov.id %}" class="btn btn-warning">Подробнее</a>
+            </div>
+        {% endfor %}
+        </div>
+        {% endif %}
+
+{% endblock %}
+

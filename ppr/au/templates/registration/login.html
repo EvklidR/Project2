@@ -1,0 +1,34 @@
+{% extends 'main/patt.html' %}
+{% load static %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'au/css/prof_w.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'au/js/prof_w.js' %}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=EB+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div class="mform">
+    <h3>Авторизация</h3>
+
+    <form method="post" class="fr" action="{% url 'login' %}">
+        {% csrf_token %}
+        <input class="form-control formEl" type="text" placeholder="Name" name="username" value="">
+        <input class="form-control formEl" type="password" placeholder="Password" name="password" value="">
+        {% if form.errors %}
+            <p>Логин или пароль введен неверно. <br>Попробуйте еще раз</p>
+        {% endif %}
+        <input class="mbtn" type="submit" value="Войти">
+    </form>
+    <span>Еще нет аккаунта? <a class="mlink" href="{% url 'User_register' %}">Регистрация</a></span>
+
+</div>
+{% endblock %}

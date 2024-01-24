@@ -1,0 +1,313 @@
+body {
+    background: #2c2c2c;
+}
+aside {
+    float: left;
+    position: fixed;
+    top: 0;
+    background: #181818;
+    width: 300px;
+    padding: 0px;
+    height: 100vh;
+    color: white;
+    border-right: 5px solid #4d4d4d;
+}
+
+aside img {
+    padding-top: 15px;
+    padding-left: 20px;
+    width: 110px;
+    display: block;
+    margin: auto
+}
+
+aside a span {
+    font-size: 20px;
+    margin: auto;
+    font-weight: bold;
+}
+
+aside h2 {
+    padding-right: 8px;
+    text-align: center;
+    margin: auto;
+    font-size: 60px;
+    font-family: 'Caveat', cursive;
+}
+
+aside ul{
+    list-style: none;
+    padding-left: 80px;
+    padding-top: 20px;
+}
+aside ul li {
+    font-size: 18px;
+    display: block;
+    margin-top: 20px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+aside a {
+    text-decoration: none;
+    color: white;
+    }
+
+aside ul li:hover {
+    color: #FF8C00;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+aside ul a:hover {
+    color: #FF8C00;
+}
+
+.msubcatalog{
+    display: none;
+}
+
+.subcatalog{
+    font-size: 14px;
+    margin: 10px 10px 13px 20px;
+}
+
+main .feat {
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    width: 78%;
+    position: relative;
+    min-height: 96vh;
+    height: fit-content;
+    padding-bottom: 40px;
+    left: 300px;
+}
+
+main .feat p {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+main form, h1 {
+    margin: 10px auto;
+    width: 500px;
+}
+main h1 {
+    margin-bottom: 30px;
+}
+
+.alert-warning {
+    display: inline-block;
+    width: 300px;
+    margin: 10px 8px;
+    text-align: center;
+}
+
+.alert-warning h5 {
+    height: 40px;
+    font-size: 17px;
+    overflow: hidden;
+    margin-top: 3px;
+}
+
+.noTov{
+    height: 80px !important;
+    margin-bottom: 0 !important;
+}
+
+.alert-warning h3 {
+    height: 35px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+}
+
+.alert-warning h4 {
+    height: 35px;
+    font-size: 30px;
+    overflow: hidden;
+
+}
+
+.mark {
+    position: absolute;
+    bottom:0;
+    right: 15px;
+	color: #FF8C00;
+	text-align: right;
+	font-family: Snell Roundhand, cursive;
+	background: #2c2c2c;
+	margin-bottom: 0px;
+}
+
+.myalert {
+    position: fixed;
+    bottom: 15px;
+    left: 750px;
+    transition: all 0.5s ease;
+    z-index: 5;
+}
+
+.form-error {
+    text-align: center;
+    color: red;
+    font-size: 17px;
+}
+#id_typeData div{
+    text-align: left;
+}
+
+.tovarIm {
+    max-height: 150px;
+}
+
+.addP {
+    display: inline-block;
+    height: 65px;
+}
+
+.del {
+    width: min-content;
+    display: inline-block;
+}
+
+input[name="min"], input[name="max"] {
+    width: 50px;
+    margin-top: 5px;
+}
+
+.sort {
+    float: left;
+}
+
+.form-sort {
+    width: 80%;
+    border: 2px solid #4d4d4d;
+    padding: 10px;
+    text-align: right;
+    background-color: #3d3d3d
+}
+
+.mbtn {
+    background: white;
+    border-radius: 5px;
+    border: 4px solid #4d4d4d;
+    height: 40px;
+}
+
+.mbtn:hover {
+    border: 4px solid #4d4d4d;
+    background: #FF8C00;
+    color: black;
+    transition: all 0.5s ease;
+}
+
+
+#block-for-slider {
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+#viewport {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    text-align: center;
+}
+
+.slidewrapper {
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+    transition: 1s;
+    transition-timing-function: cubic-bezier(.07,.01,.23,1);
+}
+
+.slidewrapper, .slidewrapper ul, .slidewrapper li {
+    margin: 0;
+    padding: 0;
+}
+
+.slide {
+    list-style: none;
+    display: inline;
+    float: left;
+}
+
+.slide-img {
+    width: 100%;
+}
+
+#prev-btn, #next-btn {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    top: 0px;
+    padding-top: 50%;
+    display: none;
+}
+
+#prev-btn:hover, #next-btn:hover {
+    cursor: pointer;
+}
+
+#prev-btn {
+    left: 0;
+    padding-right: 55px;
+}
+
+#next-btn {
+    right: 0;
+    padding-left: 55px;
+}
+
+#prev-btn p, #next-btn p {
+    background-color: rgba(39, 39, 39, 0.5);
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+}
+
+.desc {
+    text-align: left;
+    border-bottom: 2px solid #4d4d4d;
+    word-wrap: break-word;
+    max-width: 500px;
+    margin: 20px auto;
+    white-space: pre-wrap;
+}
+
+.addForm, .DForm {
+    display: inline;
+}
+
+.ready {
+    background-color: #FF8C00;
+    color: #181818;
+    width: fit-content;
+    display: inline-block;
+    padding: 6px 12px;
+}
+
+.delForm {
+    display: inline-block;
+    width: fit-content;
+}
+
+.cost {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.titlog {
+    border: 2px solid #4d4d4d;
+    background: #5d5d5d;
+    border-radius: 3px;
+    width: fit-content;
+    padding: 5px 10px;
+}

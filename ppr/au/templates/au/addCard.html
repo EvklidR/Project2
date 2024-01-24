@@ -1,0 +1,33 @@
+{% extends 'main/patt.html'%}
+{% load static %}
+
+
+{% block title %}
+    Добавление карты
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'au/css/prof_w.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mform">
+        <h3>Заполните данные карты</h3>
+        <form method="post"  class="fr">
+            {% csrf_token %}
+            {{ form.numb }}<br>
+            {% if error.num %}
+            <div class="form-error m-er">{{ error.num }}<br></div>
+            {% endif %}
+            {{ form.srok }}<br>
+            {% if error.sr %}
+            <div class="form-error m-er">{{ error.sr }}<br></div>
+            {% endif %}
+            {{ form.three }}<br>
+            {% if error.th %}
+            <div class="form-error m-er">{{ error.th }}<br></div>
+            {% endif %}
+            <input class="mbtn" type="submit" value="Добавить">
+        </form>
+</div>
+{% endblock %}

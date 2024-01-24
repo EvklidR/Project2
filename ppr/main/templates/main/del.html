@@ -1,0 +1,14 @@
+{% extends 'main/patt.html'%}
+
+{% block title %}
+    удаление
+{% endblock %}
+
+{% block content %}
+        <h1>Вы уверены, что хотите удалить товар?</h1>
+        <form method="post" class="delForm">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Удалить</button>
+        </form>
+        <a class="btn btn-success" href="{% url 'dinamic' keyy.id %}">Отмена</a>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'main/patt.html'%}
+{% load static %}
+
+
+{% block title %}
+    {{ keyy.title }}
+{% endblock %}
+
+{% block content %}
+                <h1>{{ keyy.title }}</h1>
+                {% if keyy.image_set.all %}
+
+                <div id="block-for-slider">
+                        <div id="viewport">
+                            <ul class="slidewrapper">
+
+                                {% for i in keyy.image_set.all %}
+                                <li class="slide"><img src="{{i.image.url}}" class="slide-img"></li>
+                                {% endfor %}
+                            </ul>
+
+                            <div id="prev-next-btns">
+                                <div id="prev-btn"><p><</p></div>
+                                <div id="next-btn"><p>></p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% else %}
+                    <div>
+                        <img src="{% static 'media/no-image-large.jpg' %}" class="tovarIm">
+                    </div>
+                {% endif %}
+
+        <p class="cost">Цена: {{ keyy.cost }}</p>
+        <pre class="desc">{{ keyy.description }}</pre>
+        Описание:
+        <pre class="desc">{{ keyy.inform }}</pre>
+        <p>{{ keyy.date }}</p>
+        {% if user.is_staff  %}
+        <a href="{% url 'dinamic-del' keyy.id %}" class="btn mbtn">удаление</a>
+        <a href="{% url 'dinamic-up' keyy.id %}" class="btn mbtn">редактирование</a>
+        {% elif user.is_authenticated %}
+<t class="basket_check">
+                {% if not Fl %}
+                <form class="addForm">
+                {% csrf_token %}
+                <input name="basket" type="hidden" value='{{ keyy.id }}'>
+                <button class="btn btn-warning addT" type="submit"><i class="fas fa-plus-circle"></i>Добавить в корзину</button>
+                </form>
+                {% else %}
+
+                <form class="DForm">
+                {% csrf_token %}
+                <input name="DelBasket" type="hidden" value='{{ keyy.id }}'>
+                <button class="btn btn-warning" type="submit"><i class="bi bi-bookmark-check-fill"></i>Товар в корзине</button>
+                </form>
+
+                {% endif %}
+                </t>
+<!--        {% if not Fl %}-->
+<!--        <a href="{% url 'add_tovar' keyy.id %}" class="btn mbtn"><i class="fas fa-plus-circle"></i>Добавить в корзину</a>-->
+<!--        {% else %}-->
+<!--        <a class="btn mbtn ready" href="{% url 'del_tovar' keyy.id %}"><i class="bi bi-bookmark-check-fill"></i>Товар в корзине</a>-->
+<!--        {% endif %}-->
+        <a href="{% url 'buy' keyy.id %}" class="btn mbtn">Купить</a>
+        {% endif %}
+
+
+{% endblock %}

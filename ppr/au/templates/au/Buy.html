@@ -1,0 +1,35 @@
+{% extends 'main/patt.html'%}
+{% load static %}
+
+
+{% block title %}
+    Покупка товара
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'au/css/prof_w.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mform">
+        <h3>Оформление заказа</h3>
+        <form method="post"  class="fr">
+            {% csrf_token %}
+            {% if cards %}
+            <select name="card" class="form-control formEl" placeholder="карт нет">
+                {% for i in cards %}
+                <option value="{{ i.id }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+            или
+            {% endif %}
+            <a href="{% url 'addCard' %}" class="form-control formEl"><i class="bi bi-plus-circle"></i>  Добавить карту</a>
+
+
+            {{ form.adress }}<br>
+            {{ error }}
+
+            <input class="mbtn" type="submit" value="Заказать">
+        </form>
+</div>
+{% endblock %}

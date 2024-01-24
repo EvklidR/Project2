@@ -1,0 +1,20 @@
+{% extends 'main/patt.html'%}
+
+{% block title %}
+    Добавление
+{% endblock %}
+
+{% block content %}
+        <h1>Форма товара</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.title }}<br>
+            {{ form.description }}<br>
+            {{ form.inform }}<br>
+            <span>Тип товара:</span>
+            {{ form.typeData }}<br>
+            {{ form.cost }}<br>
+            <div class="form-error">{{ form.cost.errors }}<br></div>
+            <button class="btn btn-success" type="submit">Продолжить</button>
+        </form>
+{% endblock %}

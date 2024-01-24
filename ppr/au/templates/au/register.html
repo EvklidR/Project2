@@ -1,0 +1,46 @@
+{% extends 'main/patt.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'au/css/prof_w.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'au/js/prof_w.js' %}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=EB+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div class="mform">
+    <h3>Регистрация</h3>
+
+    <form method="post" class="fr">
+        {% csrf_token %}
+<!--        {% for f in form %}-->
+<!--        <input class="form-control formEl" placeholder='{{ f.label }}' name='{{ f.name }}'>-->
+<!--        <div class="form-error">{{ f.errors }}</div>-->
+<!--        {% endfor %}-->
+
+<!--        {{ form|crispy }}-->
+
+        <input class="form-control formEl" type="text" placeholder="Имя" name="username">
+        <div class="form-error">{{ form.username.errors }}</div>
+        <input class="form-control formEl" type="email" placeholder="Email" name="email">
+        <div class="form-error">{{ form.email.errors }}</div>
+        <input class="form-control formEl" type="password" placeholder="Пароль" name="password1">
+        <div class="form-error">{{ form.password1.errors }}</div>
+        <input class="form-control formEl" type="password" placeholder="Повторите пароль" name="password2">
+        <div class="form-error">{{ form.password2.errors }}</div>
+        <input class="mbtn" type="submit" value="Зарегистрироваться">
+    </form>
+    <span>Уже есть аккаунт? <a href="{% url 'login' %}" class="mlink">Авторизация</a></span>
+
+</div>
+{% endblock %}

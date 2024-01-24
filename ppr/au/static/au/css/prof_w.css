@@ -1,0 +1,233 @@
+.mform {
+    margin: 0px auto;
+    padding-top: 0px;
+    text-align: center;
+    color: white;
+    border: 4px solid #4d4d4d;
+    width: 350px;
+
+}
+
+.fr {
+    width: 100%;
+}
+
+.mform h3{
+    margin-top: 50px;
+    padding-bottom: 45px;
+    font-family: 'EB Garamond', serif;
+    font-size: 40px;
+}
+
+.formEl{
+    width: 300px;
+    margin: auto;
+    margin:25px;
+}
+.mbtn {
+    margin-top: 20px;
+    background: white;
+    border-radius: 5px;
+    border: 4px solid #4d4d4d;
+    height: 40px;
+}
+
+.mbtn:hover {
+    background: #FF8C00;
+    color: black;
+    transition: all 0.5s ease;
+}
+.fr p{
+    color: red;
+    margin: 0px;
+    font-size: 15px;
+}
+.mform span{
+    font-size: 14px;
+    padding-bottom: 10px;
+    display: block;
+}
+
+.form-error {
+    text-align: left;
+    color: red;
+    font-size: 14px;
+}
+
+.nickname {
+    display: block;
+    text-align: left;
+    margin-left: 80px;
+    margin-top: 30px;
+    font-size: 60px;
+}
+
+.email {
+    display: block;
+    text-align: left;
+    margin-left: 80px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    padding: 0px 10px;
+    border: 2px solid #4d4d4d;
+    background: #5d5d5d;
+    border-radius: 3px;
+    width: fit-content;
+}
+
+.cards {
+    text-align: left;
+    margin-left: 80px;
+    margin-top: 15px;
+    font-size: 25px;
+    padding: 3px;
+    border: 2px solid #4d4d4d;
+    background: #e3ac5b;
+    border-radius: 10px;
+    width: fit-content;
+    color: black;
+
+}
+
+.crcard{
+    font-family: 'Caveat', cursive;
+    font-family: 'EB Garamond', serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
+    margin: 0px 5px;
+}
+
+.addcard {
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    padding: 3px;
+    border: 2px solid #946012;
+    background: #c77700;
+    border-radius: 3px;
+    width: fit-content;
+}
+hr {
+    color: #946012;
+    border-top: 3px solid;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.nickname i {
+    display: inline-block;
+    text-align: center;
+    font-size: 25px;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.fields {
+    text-align: left;
+    margin-left: 80px;
+    margin-right: 130px;
+    margin-top: 15px;
+    font-size: 25px;
+    padding: 3px;
+    border: 2px solid #4d4d4d;
+    background: #e3ac5b;
+    border-radius: 10px;
+
+    color: black;
+}
+
+.no-card {
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    padding: 3px;
+}
+
+.mybtn {
+    background: none;
+    width: fit-content;
+    border: none;
+    margin-top: 40px;
+    margin-right: 140px;
+    font-size: 20px;
+    padding: 3px;
+    color: black;
+    float: right;
+    vertical-align: bottom;
+    color: #9d9d9d;
+
+}
+
+i {
+    margin:0px;
+}
+
+.nickname a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #FF8C00;
+}
+
+.change {
+    margin-bottom:3px;
+    margin-top: 25px;
+}
+
+.m-er {
+    margin-left: 25px;
+}
+
+.users {
+    display: block;
+    text-align: left;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-bottom: 2px solid #4d4d4d;
+    width: fit-content;
+}
+
+.mtitle {
+    display: block;
+    text-align: left;
+    font-size: 25px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    color: #FF8C00;
+}
+
+.users1 {
+    display: block;
+    text-align: center;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    width: fit-content;
+}
+
+.users2 {
+    display: block;
+    text-align: center;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+a:hover {
+    color: #5d5d5d;
+}
+
+.mlink{
+    color: #FF8C00;
+}

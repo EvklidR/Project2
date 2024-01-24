@@ -1,0 +1,72 @@
+{% extends 'main/patt.html'%}
+{% load static %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+        <h1 id="tit">{{ title }}</h1>
+        <form class="form-sort" method="post">
+            {% csrf_token %}
+            <div class="sort">
+            Сортировать по дате:
+            <select name="SortData">
+                <option value="1">Новое выше</option>
+                {% if form.sort == "2" %}
+                    <option value="2" selected>Новое ниже</option>
+                {% else %}
+                <option value="2">Новое ниже</option>
+                {% endif %}
+            </select>
+            Фильтровать по цене:
+                <input value="{{ form.minim }}" name="min" placeholder="от">
+                <input value="{{ form.maxim }}" name="max" placeholder="до">
+            </div>
+            <input value="{{ form.search }}" placeholder="поиск" name="searchT">
+            <button class="mbtn" type="submit" name="search">Найти</button>
+        </form>
+        {% if tovar %}
+        {% for el in tovar %}
+            <div class="alert-warning alert">
+                <h3>{{ el.title }}</h3>
+                {% if el.image_set.all %}
+                    <div>
+                        <img src="{{el.image_set.all.0.image.url}}" class="tovarIm">
+                    </div>
+                {% else %}
+                    <div>
+                        <img src="{% static 'media/no-image-large.jpg' %}" class="tovarIm">
+                    </div>
+                {% endif %}
+                <h5>{{ el.description }}</h5>
+                <h4>{{ el.cost }}</h4>
+                <a href="{% url 'dinamic' el.id %}" class="btn btn-warning">Подробнее</a>
+                {% if user.is_authenticated and not user.is_superuser %}
+                <t class="basket_check">
+                {% if not el in cur_tov %}
+                <form class="addForm">
+                {% csrf_token %}
+                <input name="basket" type="hidden" value='{{ el.id }}'>
+                <button class="btn btn-warning addT" type="submit"><i class="bi bi-basket"></i></button>
+                </form>
+                {% else %}
+
+                <form class="DForm">
+                {% csrf_token %}
+                <input name="DelBasket" type="hidden" value='{{ el.id }}'>
+                <button class="btn btn-warning" type="submit"><i class="bi bi-bookmark-check-fill"></i></button>
+                </form>
+
+                {% endif %}
+                </t>
+                <a href="{% url 'buy' el.id %}" class="btn btn-warning"><i class="bi bi-bag-fill"></i></a>
+{% endif %}
+
+            </div>
+        {% endfor %}
+        {% else %}
+            <div>Товаров не найдено</div>
+        {% endif %}
+{% endblock %}
